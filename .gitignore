@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+pnpm-store/
+yarn-error.log
+pnpm-lock.yaml
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+pms-preserved-install.log
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# Docker
+.dockerignore
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+coverage
+/coverage/
+.nyc_output
+# Jest
+/coverage/
+jest.config.js
+
+# Temporary
+tmp/
+temp/
+

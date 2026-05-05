@@ -1,0 +1,665 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - navigation [ref=e5]:
+      - generic [ref=e6]:
+        - link "About" [ref=e7] [cursor=pointer]:
+          - /url: "#about"
+        - link "Price" [ref=e8] [cursor=pointer]:
+          - /url: "#price"
+        - link "Projects" [ref=e9] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Contact" [ref=e10] [cursor=pointer]:
+          - /url: "#contact"
+    - heading "Hi, i'm jack" [level=1] [ref=e12]
+    - generic [ref=e13]:
+      - paragraph [ref=e15]: a 3d creator driven by crafting striking and unforgettable projects
+      - button "Contact Me" [ref=e17] [cursor=pointer]
+    - img "Jack" [ref=e20]
+  - generic [ref=e25]:
+    - heading "About me" [level=1] [ref=e30]
+    - generic [ref=e31]:
+      - paragraph [ref=e32]:
+        - generic [ref=e33]:
+          - text: W
+          - generic [ref=e34]: W
+        - generic [ref=e35]:
+          - text: i
+          - generic [ref=e36]: i
+        - generic [ref=e37]:
+          - text: t
+          - generic [ref=e38]: t
+        - generic [ref=e39]:
+          - text: h
+          - generic [ref=e40]: h
+        - generic [ref=e43]:
+          - text: m
+          - generic [ref=e44]: m
+        - generic [ref=e45]:
+          - text: o
+          - generic [ref=e46]: o
+        - generic [ref=e47]:
+          - text: r
+          - generic [ref=e48]: r
+        - generic [ref=e49]:
+          - text: e
+          - generic [ref=e50]: e
+        - generic [ref=e53]:
+          - text: t
+          - generic [ref=e54]: t
+        - generic [ref=e55]:
+          - text: h
+          - generic [ref=e56]: h
+        - generic [ref=e57]:
+          - text: a
+          - generic [ref=e58]: a
+        - generic [ref=e59]:
+          - text: "n"
+          - generic [ref=e60]: "n"
+        - generic [ref=e63]:
+          - text: f
+          - generic [ref=e64]: f
+        - generic [ref=e65]:
+          - text: i
+          - generic [ref=e66]: i
+        - generic [ref=e67]:
+          - text: v
+          - generic [ref=e68]: v
+        - generic [ref=e69]:
+          - text: e
+          - generic [ref=e70]: e
+        - generic [ref=e73]:
+          - text: "y"
+          - generic [ref=e74]: "y"
+        - generic [ref=e75]:
+          - text: e
+          - generic [ref=e76]: e
+        - generic [ref=e77]:
+          - text: a
+          - generic [ref=e78]: a
+        - generic [ref=e79]:
+          - text: r
+          - generic [ref=e80]: r
+        - generic [ref=e81]:
+          - text: s
+          - generic [ref=e82]: s
+        - generic [ref=e85]:
+          - text: o
+          - generic [ref=e86]: o
+        - generic [ref=e87]:
+          - text: f
+          - generic [ref=e88]: f
+        - generic [ref=e91]:
+          - text: e
+          - generic [ref=e92]: e
+        - generic [ref=e93]:
+          - text: x
+          - generic [ref=e94]: x
+        - generic [ref=e95]:
+          - text: p
+          - generic [ref=e96]: p
+        - generic [ref=e97]:
+          - text: e
+          - generic [ref=e98]: e
+        - generic [ref=e99]:
+          - text: r
+          - generic [ref=e100]: r
+        - generic [ref=e101]:
+          - text: i
+          - generic [ref=e102]: i
+        - generic [ref=e103]:
+          - text: e
+          - generic [ref=e104]: e
+        - generic [ref=e105]:
+          - text: "n"
+          - generic [ref=e106]: "n"
+        - generic [ref=e107]:
+          - text: c
+          - generic [ref=e108]: c
+        - generic [ref=e109]:
+          - text: e
+          - generic [ref=e110]: e
+        - generic [ref=e113]:
+          - text: i
+          - generic [ref=e114]: i
+        - generic [ref=e115]:
+          - text: "n"
+          - generic [ref=e116]: "n"
+        - generic [ref=e119]:
+          - text: d
+          - generic [ref=e120]: d
+        - generic [ref=e121]:
+          - text: e
+          - generic [ref=e122]: e
+        - generic [ref=e123]:
+          - text: s
+          - generic [ref=e124]: s
+        - generic [ref=e125]:
+          - text: i
+          - generic [ref=e126]: i
+        - generic [ref=e127]:
+          - text: g
+          - generic [ref=e128]: g
+        - generic [ref=e129]:
+          - text: "n"
+          - generic [ref=e130]: "n"
+        - generic [ref=e131]:
+          - text: ","
+          - generic [ref=e132]: ","
+        - generic [ref=e135]:
+          - text: i
+          - generic [ref=e136]: i
+        - generic [ref=e139]:
+          - text: f
+          - generic [ref=e140]: f
+        - generic [ref=e141]:
+          - text: o
+          - generic [ref=e142]: o
+        - generic [ref=e143]:
+          - text: c
+          - generic [ref=e144]: c
+        - generic [ref=e145]:
+          - text: u
+          - generic [ref=e146]: u
+        - generic [ref=e147]:
+          - text: s
+          - generic [ref=e148]: s
+        - generic [ref=e151]:
+          - text: o
+          - generic [ref=e152]: o
+        - generic [ref=e153]:
+          - text: "n"
+          - generic [ref=e154]: "n"
+        - generic [ref=e157]:
+          - text: b
+          - generic [ref=e158]: b
+        - generic [ref=e159]:
+          - text: r
+          - generic [ref=e160]: r
+        - generic [ref=e161]:
+          - text: a
+          - generic [ref=e162]: a
+        - generic [ref=e163]:
+          - text: "n"
+          - generic [ref=e164]: "n"
+        - generic [ref=e165]:
+          - text: d
+          - generic [ref=e166]: d
+        - generic [ref=e167]:
+          - text: i
+          - generic [ref=e168]: i
+        - generic [ref=e169]:
+          - text: "n"
+          - generic [ref=e170]: "n"
+        - generic [ref=e171]:
+          - text: g
+          - generic [ref=e172]: g
+        - generic [ref=e173]:
+          - text: ","
+          - generic [ref=e174]: ","
+        - generic [ref=e177]:
+          - text: w
+          - generic [ref=e178]: w
+        - generic [ref=e179]:
+          - text: e
+          - generic [ref=e180]: e
+        - generic [ref=e181]:
+          - text: b
+          - generic [ref=e182]: b
+        - generic [ref=e185]:
+          - text: d
+          - generic [ref=e186]: d
+        - generic [ref=e187]:
+          - text: e
+          - generic [ref=e188]: e
+        - generic [ref=e189]:
+          - text: s
+          - generic [ref=e190]: s
+        - generic [ref=e191]:
+          - text: i
+          - generic [ref=e192]: i
+        - generic [ref=e193]:
+          - text: g
+          - generic [ref=e194]: g
+        - generic [ref=e195]:
+          - text: "n"
+          - generic [ref=e196]: "n"
+        - generic [ref=e197]:
+          - text: ","
+          - generic [ref=e198]: ","
+        - generic [ref=e201]:
+          - text: a
+          - generic [ref=e202]: a
+        - generic [ref=e203]:
+          - text: "n"
+          - generic [ref=e204]: "n"
+        - generic [ref=e205]:
+          - text: d
+          - generic [ref=e206]: d
+        - generic [ref=e209]:
+          - text: u
+          - generic [ref=e210]: u
+        - generic [ref=e211]:
+          - text: s
+          - generic [ref=e212]: s
+        - generic [ref=e213]:
+          - text: e
+          - generic [ref=e214]: e
+        - generic [ref=e215]:
+          - text: r
+          - generic [ref=e216]: r
+        - generic [ref=e219]:
+          - text: e
+          - generic [ref=e220]: e
+        - generic [ref=e221]:
+          - text: x
+          - generic [ref=e222]: x
+        - generic [ref=e223]:
+          - text: p
+          - generic [ref=e224]: p
+        - generic [ref=e225]:
+          - text: e
+          - generic [ref=e226]: e
+        - generic [ref=e227]:
+          - text: r
+          - generic [ref=e228]: r
+        - generic [ref=e229]:
+          - text: i
+          - generic [ref=e230]: i
+        - generic [ref=e231]:
+          - text: e
+          - generic [ref=e232]: e
+        - generic [ref=e233]:
+          - text: "n"
+          - generic [ref=e234]: "n"
+        - generic [ref=e235]:
+          - text: c
+          - generic [ref=e236]: c
+        - generic [ref=e237]:
+          - text: e
+          - generic [ref=e238]: e
+        - generic [ref=e239]:
+          - text: ","
+          - generic [ref=e240]: ","
+        - generic [ref=e243]:
+          - text: i
+          - generic [ref=e244]: i
+        - generic [ref=e247]:
+          - text: t
+          - generic [ref=e248]: t
+        - generic [ref=e249]:
+          - text: r
+          - generic [ref=e250]: r
+        - generic [ref=e251]:
+          - text: u
+          - generic [ref=e252]: u
+        - generic [ref=e253]:
+          - text: l
+          - generic [ref=e254]: l
+        - generic [ref=e255]:
+          - text: "y"
+          - generic [ref=e256]: "y"
+        - generic [ref=e259]:
+          - text: e
+          - generic [ref=e260]: e
+        - generic [ref=e261]:
+          - text: "n"
+          - generic [ref=e262]: "n"
+        - generic [ref=e263]:
+          - text: j
+          - generic [ref=e264]: j
+        - generic [ref=e265]:
+          - text: o
+          - generic [ref=e266]: o
+        - generic [ref=e267]:
+          - text: "y"
+          - generic [ref=e268]: "y"
+        - generic [ref=e271]:
+          - text: w
+          - generic [ref=e272]: w
+        - generic [ref=e273]:
+          - text: o
+          - generic [ref=e274]: o
+        - generic [ref=e275]:
+          - text: r
+          - generic [ref=e276]: r
+        - generic [ref=e277]:
+          - text: k
+          - generic [ref=e278]: k
+        - generic [ref=e279]:
+          - text: i
+          - generic [ref=e280]: i
+        - generic [ref=e281]:
+          - text: "n"
+          - generic [ref=e282]: "n"
+        - generic [ref=e283]:
+          - text: g
+          - generic [ref=e284]: g
+        - generic [ref=e287]:
+          - text: w
+          - generic [ref=e288]: w
+        - generic [ref=e289]:
+          - text: i
+          - generic [ref=e290]: i
+        - generic [ref=e291]:
+          - text: t
+          - generic [ref=e292]: t
+        - generic [ref=e293]:
+          - text: h
+          - generic [ref=e294]: h
+        - generic [ref=e297]:
+          - text: b
+          - generic [ref=e298]: b
+        - generic [ref=e299]:
+          - text: u
+          - generic [ref=e300]: u
+        - generic [ref=e301]:
+          - text: s
+          - generic [ref=e302]: s
+        - generic [ref=e303]:
+          - text: i
+          - generic [ref=e304]: i
+        - generic [ref=e305]:
+          - text: "n"
+          - generic [ref=e306]: "n"
+        - generic [ref=e307]:
+          - text: e
+          - generic [ref=e308]: e
+        - generic [ref=e309]:
+          - text: s
+          - generic [ref=e310]: s
+        - generic [ref=e311]:
+          - text: s
+          - generic [ref=e312]: s
+        - generic [ref=e313]:
+          - text: e
+          - generic [ref=e314]: e
+        - generic [ref=e315]:
+          - text: s
+          - generic [ref=e316]: s
+        - generic [ref=e319]:
+          - text: t
+          - generic [ref=e320]: t
+        - generic [ref=e321]:
+          - text: h
+          - generic [ref=e322]: h
+        - generic [ref=e323]:
+          - text: a
+          - generic [ref=e324]: a
+        - generic [ref=e325]:
+          - text: t
+          - generic [ref=e326]: t
+        - generic [ref=e329]:
+          - text: a
+          - generic [ref=e330]: a
+        - generic [ref=e331]:
+          - text: i
+          - generic [ref=e332]: i
+        - generic [ref=e333]:
+          - text: m
+          - generic [ref=e334]: m
+        - generic [ref=e337]:
+          - text: t
+          - generic [ref=e338]: t
+        - generic [ref=e339]:
+          - text: o
+          - generic [ref=e340]: o
+        - generic [ref=e343]:
+          - text: s
+          - generic [ref=e344]: s
+        - generic [ref=e345]:
+          - text: t
+          - generic [ref=e346]: t
+        - generic [ref=e347]:
+          - text: a
+          - generic [ref=e348]: a
+        - generic [ref=e349]:
+          - text: "n"
+          - generic [ref=e350]: "n"
+        - generic [ref=e351]:
+          - text: d
+          - generic [ref=e352]: d
+        - generic [ref=e355]:
+          - text: o
+          - generic [ref=e356]: o
+        - generic [ref=e357]:
+          - text: u
+          - generic [ref=e358]: u
+        - generic [ref=e359]:
+          - text: t
+          - generic [ref=e360]: t
+        - generic [ref=e363]:
+          - text: a
+          - generic [ref=e364]: a
+        - generic [ref=e365]:
+          - text: "n"
+          - generic [ref=e366]: "n"
+        - generic [ref=e367]:
+          - text: d
+          - generic [ref=e368]: d
+        - generic [ref=e371]:
+          - text: p
+          - generic [ref=e372]: p
+        - generic [ref=e373]:
+          - text: r
+          - generic [ref=e374]: r
+        - generic [ref=e375]:
+          - text: e
+          - generic [ref=e376]: e
+        - generic [ref=e377]:
+          - text: s
+          - generic [ref=e378]: s
+        - generic [ref=e379]:
+          - text: e
+          - generic [ref=e380]: e
+        - generic [ref=e381]:
+          - text: "n"
+          - generic [ref=e382]: "n"
+        - generic [ref=e383]:
+          - text: t
+          - generic [ref=e384]: t
+        - generic [ref=e387]:
+          - text: t
+          - generic [ref=e388]: t
+        - generic [ref=e389]:
+          - text: h
+          - generic [ref=e390]: h
+        - generic [ref=e391]:
+          - text: e
+          - generic [ref=e392]: e
+        - generic [ref=e393]:
+          - text: i
+          - generic [ref=e394]: i
+        - generic [ref=e395]:
+          - text: r
+          - generic [ref=e396]: r
+        - generic [ref=e399]:
+          - text: b
+          - generic [ref=e400]: b
+        - generic [ref=e401]:
+          - text: e
+          - generic [ref=e402]: e
+        - generic [ref=e403]:
+          - text: s
+          - generic [ref=e404]: s
+        - generic [ref=e405]:
+          - text: t
+          - generic [ref=e406]: t
+        - generic [ref=e409]:
+          - text: i
+          - generic [ref=e410]: i
+        - generic [ref=e411]:
+          - text: m
+          - generic [ref=e412]: m
+        - generic [ref=e413]:
+          - text: a
+          - generic [ref=e414]: a
+        - generic [ref=e415]:
+          - text: g
+          - generic [ref=e416]: g
+        - generic [ref=e417]:
+          - text: e
+          - generic [ref=e418]: e
+        - generic [ref=e419]:
+          - text: .
+          - generic [ref=e420]: .
+        - generic [ref=e423]:
+          - text: L
+          - generic [ref=e424]: L
+        - generic [ref=e425]:
+          - text: e
+          - generic [ref=e426]: e
+        - generic [ref=e427]:
+          - text: t
+          - generic [ref=e428]: t
+        - generic [ref=e429]:
+          - text: "'"
+          - generic [ref=e430]: "'"
+        - generic [ref=e431]:
+          - text: s
+          - generic [ref=e432]: s
+        - generic [ref=e435]:
+          - text: b
+          - generic [ref=e436]: b
+        - generic [ref=e437]:
+          - text: u
+          - generic [ref=e438]: u
+        - generic [ref=e439]:
+          - text: i
+          - generic [ref=e440]: i
+        - generic [ref=e441]:
+          - text: l
+          - generic [ref=e442]: l
+        - generic [ref=e443]:
+          - text: d
+          - generic [ref=e444]: d
+        - generic [ref=e447]:
+          - text: s
+          - generic [ref=e448]: s
+        - generic [ref=e449]:
+          - text: o
+          - generic [ref=e450]: o
+        - generic [ref=e451]:
+          - text: m
+          - generic [ref=e452]: m
+        - generic [ref=e453]:
+          - text: e
+          - generic [ref=e454]: e
+        - generic [ref=e455]:
+          - text: t
+          - generic [ref=e456]: t
+        - generic [ref=e457]:
+          - text: h
+          - generic [ref=e458]: h
+        - generic [ref=e459]:
+          - text: i
+          - generic [ref=e460]: i
+        - generic [ref=e461]:
+          - text: "n"
+          - generic [ref=e462]: "n"
+        - generic [ref=e463]:
+          - text: g
+          - generic [ref=e464]: g
+        - generic [ref=e467]:
+          - text: i
+          - generic [ref=e468]: i
+        - generic [ref=e469]:
+          - text: "n"
+          - generic [ref=e470]: "n"
+        - generic [ref=e471]:
+          - text: c
+          - generic [ref=e472]: c
+        - generic [ref=e473]:
+          - text: r
+          - generic [ref=e474]: r
+        - generic [ref=e475]:
+          - text: e
+          - generic [ref=e476]: e
+        - generic [ref=e477]:
+          - text: d
+          - generic [ref=e478]: d
+        - generic [ref=e479]:
+          - text: i
+          - generic [ref=e480]: i
+        - generic [ref=e481]:
+          - text: b
+          - generic [ref=e482]: b
+        - generic [ref=e483]:
+          - text: l
+          - generic [ref=e484]: l
+        - generic [ref=e485]:
+          - text: e
+          - generic [ref=e486]: e
+        - generic [ref=e489]:
+          - text: t
+          - generic [ref=e490]: t
+        - generic [ref=e491]:
+          - text: o
+          - generic [ref=e492]: o
+        - generic [ref=e493]:
+          - text: g
+          - generic [ref=e494]: g
+        - generic [ref=e495]:
+          - text: e
+          - generic [ref=e496]: e
+        - generic [ref=e497]:
+          - text: t
+          - generic [ref=e498]: t
+        - generic [ref=e499]:
+          - text: h
+          - generic [ref=e500]: h
+        - generic [ref=e501]:
+          - text: e
+          - generic [ref=e502]: e
+        - generic [ref=e503]:
+          - text: r
+          - generic [ref=e504]: r
+        - generic [ref=e505]:
+          - text: "!"
+          - generic [ref=e506]: "!"
+      - button "Contact Me" [ref=e507] [cursor=pointer]
+  - generic [ref=e508]:
+    - heading "Services" [level=2] [ref=e509]
+    - generic [ref=e510]:
+      - generic [ref=e511]:
+        - generic [ref=e512]: "01"
+        - generic [ref=e513]:
+          - heading "3D Modeling" [level=3] [ref=e514]
+          - paragraph [ref=e515]: Creation of detailed objects, characters, or environments tailored to specific client needs, ideal for games, products, and visualizations.
+      - generic [ref=e516]:
+        - generic [ref=e517]: "02"
+        - generic [ref=e518]:
+          - heading "Rendering" [level=3] [ref=e519]
+          - paragraph [ref=e520]: High-quality, photorealistic renders that showcase designs with custom lighting, textures, and materials to bring concepts to life.
+      - generic [ref=e521]:
+        - generic [ref=e522]: "03"
+        - generic [ref=e523]:
+          - heading "Motion Design" [level=3] [ref=e524]
+          - paragraph [ref=e525]: Dynamic animations and motion graphics that add energy and storytelling to brands, products, and digital experiences.
+      - generic [ref=e526]:
+        - generic [ref=e527]: "04"
+        - generic [ref=e528]:
+          - heading "Branding" [level=3] [ref=e529]
+          - paragraph [ref=e530]: Crafting cohesive visual identities -- from logos to full brand systems -- that communicate a clear and memorable presence.
+      - generic [ref=e531]:
+        - generic [ref=e532]: "05"
+        - generic [ref=e533]:
+          - heading "Web Design" [level=3] [ref=e534]
+          - paragraph [ref=e535]: Designing clean, modern, and conversion-focused websites with attention to layout, typography, and user experience.
+  - generic [ref=e536]:
+    - heading "Project" [level=1] [ref=e537]
+    - generic [ref=e538]:
+      - generic [ref=e542]:
+        - generic [ref=e543]: "01"
+        - generic [ref=e544]: Client
+        - heading "Nextlevel Studio" [level=3] [ref=e545]
+        - button "Live Project" [ref=e546] [cursor=pointer]
+      - generic [ref=e552]:
+        - generic [ref=e553]: "02"
+        - generic [ref=e554]: Personal
+        - heading "Aura Brand Identity" [level=3] [ref=e555]
+        - button "Live Project" [ref=e556] [cursor=pointer]
+      - generic [ref=e562]:
+        - generic [ref=e563]: "03"
+        - generic [ref=e564]: Client
+        - heading "Solaris Digital" [level=3] [ref=e565]
+        - button "Live Project" [ref=e566] [cursor=pointer]
