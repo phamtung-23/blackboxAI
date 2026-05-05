@@ -16,19 +16,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn'
+          cache: 'pnpm'
           
       - name: Backend Lint
         run: |
-          cd backend
-          yarn install --frozen-lockfile
-          yarn lint
+          cd backend\n          pnpm install --frozen-lockfile\n          yarn lint
           
       - name: Frontend Lint
         run: |
-          cd frontend
-          yarn install --frozen-lockfile
-          yarn lint
+          cd frontend\n          pnpm install --frozen-lockfile\n          yarn lint
 
   deploy:
     runs-on: ubuntu-latest

@@ -1,8 +1,11 @@
-# Deploy GitHub Action TODO
+# Fix CI Build Error (Missing yarn.lock)
 
-- [x] 1. Understand project structure and files (lint scripts, Docker, compose) - Completed via search/read.
-- [x] 2. Create .github/workflows/deploy.yml with lint and ssh-deploy jobs.
-- [ ] 3. User adds GitHub secrets: SSH_HOST, SSH_USER, SSH_PRIVATE_KEY.
-- [x] 4. Added .gitignore (root, backend, frontend).
-- [ ] 5. Commit/push to main to test workflow.
-- [ ] 6. Verify server deploy (git pull, docker compose build, up -d).
+## Steps:
+- [x] Step 1: Edit .github/workflows/deploy.yml to switch from yarn to pnpm (update cache and install commands).
+- [x] Step 2: cd backend && pnpm install (generate pnpm-lock.yaml).
+- [x] Step 3: cd frontend && pnpm install (generate pnpm-lock.yaml).
+- [ ] Step 4: Commit pnpm-lock.yaml files and workflow changes, push to trigger CI.
+- [ ] Step 5: Verify workflow passes (lint & deploy).
+
+Progress updated. Next: git add backend/pnpm-lock.yaml frontend/pnpm-lock.yaml .github/workflows/deploy.yml && git commit -m \"Fix CI: switch to pnpm + add lockfiles\" && git push
+
