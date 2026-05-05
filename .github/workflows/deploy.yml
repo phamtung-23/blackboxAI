@@ -53,7 +53,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /path/to/your/project  # UPDATE THIS PATH
+            cd /home/ubuntu/blackboxAI  # UPDATE THIS PATH
             git pull origin main
             docker compose build --no-cache
             docker compose up -d --remove-orphans
