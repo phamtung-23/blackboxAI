@@ -1,4 +1,4 @@
-name: Deploy
+name: CI/CD Pipeline
 
 on:
   push:
@@ -6,55 +6,132 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '20'
+  PNPM_VERSION: '9'
+
 jobs:
   lint:
+    name: Lint & Code Quality
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: ${{ env.PNPM_VERSION }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
           cache-dependency-path: |
             backend/pnpm-lock.yaml
             frontend/pnpm-lock.yaml
 
-      - name: Backend Lint
-        run: |
-          cd backend
-          pnpm install --frozen-lockfile
-          pnpm lint
+      - name: Install backend dependencies
+        working-directory: backend
+        run: pnpm install --frozen-lockfile
 
-      - name: Frontend Lint
-        run: |
-          cd frontend
-          pnpm install --frozen-lockfile
-          pnpm lint
+      - name: Lint backend
+        working-directory: backend
+        run: pnpm lint
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint frontend
+        working-directory: frontend
+        run: pnpm lint
 
   deploy:
+    name: Deploy to Production
     runs-on: ubuntu-latest
     needs: lint
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: http://${{ secrets.SSH_HOST }}:3001
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Deploy to Server
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          script_stop: true
           script: |
-            cd /home/ubuntu/blackboxAI  # UPDATE THIS PATH
+            cd /home/ubuntu/blackboxAI
+            echo "==> Pulling latest changes from main"
             git pull origin main
+            echo "==> Rebuilding containers"
             docker compose build --no-cache
+            echo "==> Restarting services"
             docker compose up -d --remove-orphans
+            echo "==> Cleaning up unused images"
+            docker image prune -f
+            echo "==> Deployment complete"
 
+  health-check:
+    name: Post-Deploy Health Check
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    timeout-minutes: 5
+    steps:
+      - name: Wait for services to warm up
+        run: sleep 20
+
+      - name: Check backend health
+        run: |
+          for i in {1..12}; do
+            if curl -fsS --max-time 5 "http://${{ secrets.SSH_HOST }}:3000/health"; then
+              echo ""
+              echo "Backend is healthy"
+              exit 0
+            fi
+            echo "Attempt $i/12: backend not ready, retrying in 10s..."
+            sleep 10
+          done
+          echo "::error::Backend health check failed after 2 minutes"
+          exit 1
+
+      - name: Check frontend availability
+        run: |
+          for i in {1..12}; do
+            if curl -fsS --max-time 5 -o /dev/null "http://${{ secrets.SSH_HOST }}:3001"; then
+              echo "Frontend is reachable"
+              exit 0
+            fi
+            echo "Attempt $i/12: frontend not ready, retrying in 10s..."
+            sleep 10
+          done
+          echo "::error::Frontend availability check failed after 2 minutes"
+          exit 1
+
+      - name: Write deployment summary
+        if: success()
+        run: |
+          {
+            echo "### Deployment Successful"
+            echo ""
+            echo "| Service | URL |"
+            echo "|---------|-----|"
+            echo "| Backend | http://${{ secrets.SSH_HOST }}:3000 |"
+            echo "| Frontend | http://${{ secrets.SSH_HOST }}:3001 |"
+            echo ""
+            echo "**Commit:** \`${{ github.sha }}\`"
+            echo "**Branch:** \`${{ github.ref_name }}\`"
+            echo "**Triggered by:** @${{ github.actor }}"
+          } >> "$GITHUB_STEP_SUMMARY"

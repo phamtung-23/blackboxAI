@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "appleboy",
+    "blackbox",
+    "blackboxai",
+    "nestjs",
+    "pnpm",
+    "tailwindcss",
+    "autoprefixer",
+    "tsconfig",
+    "ec2",
+    "ubuntu"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    ".next/**",
+    "pnpm-lock.yaml"
+  ]
+}
