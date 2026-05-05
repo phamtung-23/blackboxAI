@@ -61,7 +61,7 @@ jobs:
     timeout-minutes: 15
     environment:
       name: production
-      url: http://${{ secrets.SSH_HOST }}:3001
+      url: ${{ vars.PRODUCTION_URL }}
     steps:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
