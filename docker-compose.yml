@@ -1,43 +1,19 @@
-## version removed (obsolete in Compose v2+)
-
 services:
+  # Base compose file (structure-only).
+  # Run:
+  #   docker compose -f docker-compose.dev.yml up
+  #   docker compose -f docker-compose.prod.yml up
   backend:
-    build: ./backend
-    ports:
-      - '3000:3000'
-    environment:
-      - NODE_ENV=production
-
-    networks:
-      - app-network
-    healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http://localhost:3000/health || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-    restart: unless-stopped
+    image: placeholder
+    networks: [app-network]
 
   frontend:
-    build: ./frontend
-    ports:
-      - '3001:3000'
-    environment:
-      - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=http://localhost:3000
-
-    depends_on:
-      backend:
-        condition: service_healthy
-    networks:
-      - app-network
-    restart: unless-stopped
+    image: placeholder
+    networks: [app-network]
 
 networks:
   app-network:
     driver: bridge
 
-volumes:
-  pnpm_store:
-    driver: local
+
 

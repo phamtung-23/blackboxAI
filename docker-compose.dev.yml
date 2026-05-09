@@ -1,0 +1,50 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      target: deps
+    working_dir: /app
+    command: pnpm start:dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./backend:/app
+      - pnpm_store:/root/.local/share/pnpm/store
+      - /app/node_modules
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      target: deps
+    working_dir: /app
+    command: pnpm dev
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:3000
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/app
+      - pnpm_store:/root/.local/share/pnpm/store
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  pnpm_store:
+    driver: local
+

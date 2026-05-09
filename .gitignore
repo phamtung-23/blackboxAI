@@ -60,3 +60,4 @@ jest.config.js
 tmp/
 temp/
 
+.playwright-mcp/
