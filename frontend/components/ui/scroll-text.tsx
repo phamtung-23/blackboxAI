@@ -51,10 +51,12 @@ interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   direction?: "up" | "down" | "left" | "right";
+  effect?: "fadeUp" | "fadeDown" | "fadeLeft" | "fadeRight";
   delay?: number;
   duration?: number;
   distance?: number;
   once?: boolean;
+  speed?: number;
 }
 
 interface ScrollFadeProps {
@@ -318,16 +320,37 @@ const ScrollReveal = React.forwardRef<HTMLDivElement, ScrollRevealProps>(
     {
       children,
       className,
-      direction = "up",
+      direction: directionProp,
+      effect,
       delay = 0,
-      duration = 0.6,
+      duration: durationProp = 0.6,
       distance = 60,
       once = true,
+      speed = 1,
     },
     ref,
   ) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const [isInView, setIsInView] = React.useState(false);
+
+    // Map effect to direction if provided
+    const direction = React.useMemo(() => {
+      if (effect) {
+        const effectMap: Record<string, "up" | "down" | "left" | "right"> = {
+          fadeUp: "up",
+          fadeDown: "down",
+          fadeLeft: "left",
+          fadeRight: "right",
+        };
+        return effectMap[effect] || "up";
+      }
+      return directionProp || "up";
+    }, [effect, directionProp]);
+
+    // Use speed to adjust duration (higher speed = shorter duration)
+    const duration = React.useMemo(() => {
+      return durationProp / speed;
+    }, [durationProp, speed]);
 
     React.useEffect(() => {
       const observer = new IntersectionObserver(
@@ -349,7 +372,7 @@ const ScrollReveal = React.forwardRef<HTMLDivElement, ScrollRevealProps>(
       }
 
       return () => observer.disconnect();
-    }, [once]);
+    }, [once, direction]);
 
     const getInitialPosition = () => {
       switch (direction) {
