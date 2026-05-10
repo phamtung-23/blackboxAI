@@ -64,7 +64,7 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background">
       <SiteHeader />
-      <main className="pt-24 pb-32">
+      <main className="pb-32">
         <div className="relative h-[280px] overflow-hidden md:h-[360px]">
           <img
             src={player.cover}
@@ -74,13 +74,13 @@ export default function ProfilePage({ params }: { params: { id: string } }) {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
           <Link
             href="/players"
-            className="absolute top-6 left-6 inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm backdrop-blur hover:border-emerald-500/40"
+            className="absolute top-6 left-6 inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-3 py-1.5 text-sm backdrop-blur hover:border-emerald-500/40 mt-14"
           >
             <ArrowLeft className="h-3.5 w-3.5" /> Cầu thủ
           </Link>
         </div>
 
-        <div className="mx-auto -mt-24 max-w-6xl px-6 md:-mt-32">
+        <div className="relative z-10 mx-auto -mt-24 max-w-6xl px-6 md:-mt-32">
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-end">
             <img
               src={player.avatar}
