@@ -1,22 +1,31 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Providers } from "@/components/providers";
+import { cn } from "@/lib/utils";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: 'NextJS + NestJS App',
-  description: 'Docker Compose setup',
-}
+  title: "PitchPro — Tìm đội. Khoác áo. Đá bóng.",
+  description:
+    "PitchPro: nơi cầu thủ tạo hồ sơ bóng đá, khám phá các đội đang cần người, và xin gia nhập đúng trình độ.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", sans.variable)}
+    >
+      <body className="bg-background text-foreground antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
-  )
+  );
 }

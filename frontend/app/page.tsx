@@ -1,29 +1,33 @@
-'use client'
-
-import { useEffect, useState } from 'react';
-import { Agentation } from 'agentation';
+import { SiteHeader } from "@/components/site/site-header";
+import { SiteHero } from "@/components/site/site-hero";
+import { SiteTicker } from "@/components/site/site-ticker";
+import { SiteStats } from "@/components/site/site-stats";
+import { SiteTeams } from "@/components/site/site-teams";
+import { SiteStandings } from "@/components/site/site-standings";
+import { SiteSpotlight } from "@/components/site/site-spotlight";
+import { SiteLocker } from "@/components/site/site-locker";
+import { SiteFixtures } from "@/components/site/site-fixtures";
+import { SiteNewsletter } from "@/components/site/site-newsletter";
+import { SiteDock } from "@/components/site/site-dock";
+import { SiteFooter } from "@/components/site/site-footer";
 
 export default function Home() {
-  const [data, setData] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('http://localhost:3000')
-      .then(res => res.text())
-      .then(setData)
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-
   return (
-    <>
-      <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-<h1 className="text-4xl font-bold mb-8 animate-pulse">NextJS + NestJS with Docker & pnpm</h1>
-        <p className="text-xl bg-white/20 p-6 rounded-lg">{data}</p>
-        <p className="mt-4">Backend API: <a href="http://localhost:3000" className="underline">localhost:3000</a></p>
+    <div className="relative min-h-screen overflow-x-clip bg-background">
+      <SiteHeader />
+      <main>
+        <SiteHero />
+        <SiteTicker />
+        <SiteStats />
+        <SiteTeams />
+        <SiteFixtures />
+        <SiteSpotlight />
+        <SiteStandings />
+        <SiteLocker />
+        <SiteNewsletter />
       </main>
-      { <Agentation />}
-    </>
+      <SiteFooter />
+      <SiteDock />
+    </div>
   );
 }
