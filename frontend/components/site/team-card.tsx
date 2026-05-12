@@ -40,7 +40,10 @@ export function TeamCard({
         className,
       )}
     >
-      <div className="relative h-32 overflow-hidden">
+      <Link
+        href={`/teams/${team.slug}`}
+        className="relative block h-32 overflow-hidden"
+      >
         <img
           src={team.cover}
           alt=""
@@ -65,7 +68,7 @@ export function TeamCard({
             {team.rating}
           </span>
         </div>
-      </div>
+      </Link>
 
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex flex-wrap items-center gap-1.5 text-xs">
@@ -120,10 +123,10 @@ export function TeamCard({
 
         <div className="mt-auto flex items-center justify-between gap-2 pt-2">
           <Link
-            href={`/players?team=${team.slug}`}
+            href={`/teams/${team.slug}`}
             className="text-muted-foreground text-xs hover:text-foreground"
           >
-            Xem đội hình
+            Xem chi tiết
           </Link>
           <button
             type="button"

@@ -1,15 +1,15 @@
 "use client";
 
-import { Trophy } from "lucide-react";
-
 export function SiteFooter() {
   return (
     <footer className="mt-12 border-t border-border/40 bg-card/40 pb-28 pt-12">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
         <div className="flex items-center gap-3 font-semibold">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-700 text-white shadow-lg shadow-emerald-500/30">
-            <Trophy className="h-5 w-5" />
-          </span>
+          <img
+            src="/removebg-preview.png"
+            alt="PitchPro"
+            className="h-10 w-10 object-contain drop-shadow-[0_4px_12px_rgba(150,195,60,0.3)]"
+          />
           <div>
             <div>PitchPro</div>
             <p className="text-muted-foreground text-xs">

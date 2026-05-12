@@ -48,6 +48,14 @@
   --color-table-row-selected: var(--accent);
   --color-table-row-stripe: var(--muted);
   --color-table-sort-active: var(--primary);
+
+  /* Brand palette — shifted Tailwind `emerald` toward the lime/grass green of the logo */
+  --color-emerald-300: oklch(0.88 0.16 132);
+  --color-emerald-400: oklch(0.82 0.19 132);
+  --color-emerald-500: oklch(0.74 0.21 132);
+  --color-emerald-600: oklch(0.63 0.19 132);
+  --color-emerald-700: oklch(0.51 0.17 132);
+  --color-emerald-950: oklch(0.22 0.08 132);
 }
 
 :root {
@@ -83,7 +91,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --highlight-primary: 142 76% 36%;
+  --highlight-primary: 84 60% 48%;
   --highlight-secondary: 38 92% 50%;
   --highlight-accent: 200 98% 39%;
   --highlight-destructive: 0 84% 60%;
@@ -125,7 +133,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --highlight-primary: 142 70% 55%;
+  --highlight-primary: 84 65% 58%;
   --highlight-secondary: 38 92% 60%;
   --highlight-accent: 200 98% 55%;
   --highlight-destructive: 0 84% 65%;
