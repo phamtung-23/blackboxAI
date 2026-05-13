@@ -1,39 +1,86 @@
 services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-blackboxai}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:latest
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
   backend:
     build:
-      context: ./backend
+      context: .
+      dockerfile: backend/Dockerfile
       target: deps
-    working_dir: /app
-    command: pnpm start:dev
+    working_dir: /repo
+    command: pnpm --filter backend dev
     ports:
-      - "3000:3000"
+      - "${BACKEND_PORT:-3100}:3000"
+    env_file:
+      - .env
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=${NODE_ENV:-development}
       - CHOKIDAR_USEPOLLING=true
     volumes:
-      - ./backend:/app
-      - pnpm_store:/root/.local/share/pnpm/store
-      - /app/node_modules
+      - .:/repo
+      - repo_node_modules:/repo/node_modules
+      - backend_node_modules:/repo/backend/node_modules
+      - frontend_node_modules:/repo/frontend/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     networks:
       - app-network
     restart: unless-stopped
 
   frontend:
     build:
-      context: ./frontend
+      context: .
+      dockerfile: frontend/Dockerfile
       target: deps
-    working_dir: /app
-    command: pnpm dev
+    working_dir: /repo
+    command: pnpm --filter frontend dev
     ports:
-      - "3001:3000"
+      - "${FRONTEND_PORT:-3101}:3000"
+    env_file:
+      - .env
     environment:
-      - NODE_ENV=development
-      - NEXT_PUBLIC_API_URL=http://localhost:3000
+      - NODE_ENV=${NODE_ENV:-development}
       - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     volumes:
-      - ./frontend:/app
-      - pnpm_store:/root/.local/share/pnpm/store
-      - /app/node_modules
+      - .:/repo
+      - repo_node_modules:/repo/node_modules
+      - backend_node_modules:/repo/backend/node_modules
+      - frontend_node_modules:/repo/frontend/node_modules
     depends_on:
       - backend
     networks:
@@ -45,6 +92,8 @@ networks:
     driver: bridge
 
 volumes:
-  pnpm_store:
-    driver: local
-
+  repo_node_modules:
+  backend_node_modules:
+  frontend_node_modules:
+  postgres_data:
+  redis_data:

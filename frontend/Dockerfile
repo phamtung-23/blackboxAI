@@ -1,39 +1,44 @@
+# syntax=docker/dockerfile:1.7
+# Build context = repo root (workspace-aware).
+
 FROM node:20-alpine AS base
+ENV PNPM_HOME=/pnpm \
+    PATH=/pnpm:$PATH \
+    CI=true
+RUN apk add --no-cache libc6-compat && corepack enable
+WORKDIR /repo
 
-# Install pnpm
-FROM node:20-alpine AS pnpm
-RUN corepack enable pnpm && corepack prepare pnpm@latest --activate
+# ---- deps: install all workspace deps using the root lockfile ----
+FROM base AS deps
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY backend/package.json backend/package.json
+COPY frontend/package.json frontend/package.json
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm config set store-dir /pnpm/store && \
+    pnpm install --frozen-lockfile
 
-# Install deps
-FROM pnpm AS deps
+# ---- build: produce Next.js standalone output ----
+FROM deps AS build
+ENV NEXT_TELEMETRY_DISABLED=1
+COPY frontend frontend
+RUN pnpm --filter frontend build
+
+# ---- runner: minimal runtime image using standalone output ----
+FROM node:20-alpine AS runner
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000 \
+    HOSTNAME=0.0.0.0
 WORKDIR /app
-COPY package.json pnpm-lock.yaml* ./
-RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm install --frozen-lockfile
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
 
-# Build
-FROM deps AS builder
-WORKDIR /app
-COPY . .
-RUN pnpm build
-
-# Runner
-FROM base AS runner
-WORKDIR /app
-ENV NODE_ENV production
-
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/package.json ./ 
+# With outputFileTracingRoot set to the repo root, standalone preserves
+# the workspace layout (frontend/server.js, node_modules at root, ...).
+COPY --from=build --chown=nextjs:nodejs /repo/frontend/public ./frontend/public
+COPY --from=build --chown=nextjs:nodejs /repo/frontend/.next/standalone ./
+COPY --from=build --chown=nextjs:nodejs /repo/frontend/.next/static ./frontend/.next/static
 
 USER nextjs
-
 EXPOSE 3000
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
-
-CMD ["node", "server.js"]
+CMD ["node", "frontend/server.js"]
