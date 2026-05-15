@@ -85,7 +85,11 @@ function ProfileMockup() {
       />
       <article className="overflow-hidden rounded-[28px] border border-border/60 bg-card shadow-2xl">
         <div className="relative h-40 overflow-hidden">
-          <img src={p.cover} alt="" className="h-full w-full object-cover opacity-70" />
+          <img
+            src={p.cover}
+            alt=""
+            className="h-full w-full object-cover opacity-70"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
         </div>
         <div className="relative px-6 pt-0 pb-6">
@@ -137,7 +141,9 @@ function ProfileMockup() {
               <Trophy className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
               <span>
                 <span className="font-semibold">{p.achievements[0].title}</span>{" "}
-                <span className="text-muted-foreground">· {p.achievements[0].year}</span>
+                <span className="text-muted-foreground">
+                  · {p.achievements[0].year}
+                </span>
               </span>
             </div>
           )}

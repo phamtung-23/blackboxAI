@@ -6,8 +6,8 @@ import { ArrowRight, IdCard, Sparkles, Trophy, UserPlus } from "lucide-react";
 import { GlitchText } from "@/components/ui/glitch-text";
 import { HighlightText } from "@/components/ui/highlight-text";
 import { Magnetic } from "@/components/ui/magnetic";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { RotatingText } from "@/components/ui/rotate-text";
+import ShimmerButton from "@/components/ui/shimmer-button";
 import { useAnimatedToast } from "@/components/ui/animated-toast";
 
 export function SiteHero() {
@@ -62,26 +62,26 @@ export function SiteHero() {
           <div className="mt-2 flex flex-wrap items-center gap-3">
             <Magnetic intensity={0.5} range={120}>
               <Link href="/teams">
-                <RainbowButton className="px-6 py-3 font-semibold text-base">
+                <ShimmerButton className="font-semibold text-base">
                   Tìm đội ngay
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </RainbowButton>
+                </ShimmerButton>
               </Link>
             </Magnetic>
             <Magnetic intensity={0.5} range={120}>
               <Link href="/profile/p1">
-                <RainbowButton className="px-6 py-3 font-semibold text-base">
+                <ShimmerButton className="font-semibold text-base">
                   <IdCard className="mr-2 h-5 w-5" />
                   Tạo hồ sơ
-                </RainbowButton>
+                </ShimmerButton>
               </Link>
             </Magnetic>
             <Magnetic intensity={0.5} range={120}>
               <Link href="/players">
-                <RainbowButton className="px-6 py-3 font-semibold text-base">
+                <ShimmerButton className="font-semibold text-base">
                   <UserPlus className="mr-2 h-5 w-5" />
                   Tuyển cầu thủ
-                </RainbowButton>
+                </ShimmerButton>
               </Link>
             </Magnetic>
           </div>

@@ -37,16 +37,10 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Link
-            href="/auth/login"
-            className="hidden rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline-block"
-          >
-            Đăng nhập
-          </Link>
           <Magnetic intensity={0.4} range={80}>
             <LiquidMetalButton
-              label="Đăng ký"
-              onClick={() => router.push("/auth/register")}
+              label="Đăng nhập"
+              onClick={() => router.push("/auth/login")}
             />
           </Magnetic>
         </div>
